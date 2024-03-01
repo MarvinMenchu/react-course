@@ -3,7 +3,7 @@ import Layout from "../../Components/Layout";
 import Card from "../../Components/Card";
 
 function Home() {
-  const [items, setItems] = useState(null);
+    const [items, setItems] = useState(null);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
