@@ -6,7 +6,12 @@ import './style.css'
 
 const CheckoutSideMenu = () => {
   
-  const { isCheckoutSideMenu, closeCheckoutSideMenu,  cartProducts} = useContext(ShoppingCardContext)
+  const { isCheckoutSideMenu, closeCheckoutSideMenu,  cartProducts, setCartProducts} = useContext(ShoppingCardContext)
+
+  const handlerDelete = (id) => {
+    const filteredProducts = cartProducts.filter(product => product.id !== id)
+    setCartProducts(filteredProducts)
+  }
   return (
     <aside className={`${isCheckoutSideMenu ? 'flex' : 'hidden' } checkout-side-menu flex-col fixed right-0 border border-black rounded-lg bg-white`}>
       <div className="flex justify-between items-center p-6">
@@ -20,9 +25,11 @@ const CheckoutSideMenu = () => {
             {cartProducts.map(product => (
                 <OrderCard
                 key={product.id}
+                id={product.id}
                 title={product.title}
                 imageUrl={product.image}
                 price={product.price}
+                handlerDelete={handlerDelete}
                 />
             ))}
         </div>
