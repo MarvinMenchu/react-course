@@ -16,7 +16,7 @@ const CheckoutSideMenu = () => {
             onClick={() => closeCheckoutSideMenu()} />
         </div>
       </div>
-      <div className="px-6">
+      <div className="px-6 overflow-scroll">
             {cartProducts.map(product => (
                 <OrderCard
                 key={product.id}
