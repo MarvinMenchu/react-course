@@ -1,4 +1,5 @@
 import { ChevronRightIcon } from "@heroicons/react/20/solid"
+import { ShoppingBagIcon } from "@heroicons/react/20/solid"
 
 const OrdersCard = (props) => {
   const { totalPrice, totalProducts } = props
@@ -8,6 +9,7 @@ const OrdersCard = (props) => {
       <div className="flex justify-between w-full">
         <p className="flex flex-col">
           <span className="font-light">10.02.24</span>
+          <ShoppingBagIcon className="h-6 w-6 text-black" />
           <span className="font-light">{totalProducts} articles</span>
         </p>
         <p className="flex items-center gap-2">
