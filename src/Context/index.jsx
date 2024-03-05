@@ -26,16 +26,28 @@ export const ShoppingCardProvider = ({ children }) => {
 
     // Get Products
     const [items, setItems] = useState(null);
+    const [filteredItems, setFilteredItems] = useState(null);
 
     // * Get products by title
     const [searchByTitle, setSearchByTitle] = useState(null);
-    console.log(searchByTitle);
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
           .then((response) => response.json())
           .then((data) => setItems(data));
       }, []);
+
+      const filteredItemsByTitle = (items, searchByTitle) => {
+        return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+      }
+
+      useEffect(() => {
+        if (searchByTitle) {
+          setFilteredItems(filteredItemsByTitle(items, searchByTitle))
+        }
+      }, [items, searchByTitle]);
+
+      console.log(filteredItems);
 
     return (
         <ShoppingCardContext.Provider value={{
@@ -56,7 +68,8 @@ export const ShoppingCardProvider = ({ children }) => {
             items,
             setItems,
             searchByTitle,
-            setSearchByTitle
+            setSearchByTitle,
+            filteredItems
         }}>
             {children}
         </ShoppingCardContext.Provider>
