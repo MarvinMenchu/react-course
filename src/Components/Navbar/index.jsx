@@ -115,7 +115,7 @@ const Navbar = () => {
                 </li>
                 <li className="flex items-center">
                     <ShoppingBagIcon className="h-4 w-4 text-black"/> 
-                    <div>{context.count}</div>
+                    <div>{context.cartProducts.length}</div>
                 </li>
             </ul>
         </nav>
