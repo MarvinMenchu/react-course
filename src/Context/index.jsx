@@ -1,4 +1,3 @@
-import { parse } from "postcss"
 import { createContext, useState, useEffect } from "react"
 
 export const ShoppingCardContext = createContext()
@@ -66,13 +65,13 @@ export const ShoppingCardProvider = ({ children }) => {
             .then((data) => setItems(data));
     }, []);
 
-      const filteredItemsByTitle = (items, searchByTitle) => {
+    const filteredItemsByTitle = (items, searchByTitle) => {
         return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
-      }
+    }
 
-      const filteredItemsByCategory = (items, searchByCategory) => {
+    const filteredItemsByCategory = (items, searchByCategory) => {
         return items?.filter(item => item.category.toLowerCase().includes(searchByCategory.toLowerCase()))
-      }
+    }
 
     const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
         if (searchType === 'BY_TITLE') {

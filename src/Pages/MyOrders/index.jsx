@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 function MyOrders() {
 
     const context = useContext(ShoppingCardContext);
-
     return (
         <Layout>
             <div className="flex items-center justify-center relative w-80 mb-4">
