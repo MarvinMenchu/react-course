@@ -5,7 +5,7 @@ import ProductDetail from "../../Components/ProductDetail";
 import { ShoppingCardContext } from "../../Context";
 
 function Home() {
-  const { items, searchByTitle, setSearchByTitle, filteredItems } = useContext(ShoppingCardContext);
+  const { setSearchByTitle, filteredItems } = useContext(ShoppingCardContext);
 
 
   const renderView = () => {
@@ -17,7 +17,7 @@ function Home() {
       )
     } else {
       return (
-        <div>We don't have anything :(</div>
+        <div>{`We don't have anything :(`}</div>
       )
     }
   }

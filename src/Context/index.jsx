@@ -58,6 +58,7 @@ export const ShoppingCardProvider = ({ children }) => {
 
     // * Get products by Category
     const [searchByCategory, setSearchByCategory] = useState(null);
+    console.log(searchByCategory)
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
